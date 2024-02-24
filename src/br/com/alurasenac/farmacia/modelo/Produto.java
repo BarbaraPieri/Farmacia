@@ -1,6 +1,12 @@
 package br.com.alurasenac.farmacia.modelo;
 
 public class Produto {
+
+    private ConnectionFactory connection;
+
+    Produto(){
+        this.connection = new ConnectionFactory();
+    }
     private String id;
     private double preco;
     private String nome;
