@@ -20,4 +20,7 @@ public class ProdutoService {
     public List<Produto> listarTodosProdutos() { return produtoDao.listarTodos(); }
 
     public void deletarProduto(String id) { produtoDao.deletar(id); }
+
+    public void atualizarPrecoProduto(String id, double novoPreco) { produtoDao.atualizarPreco(id, novoPreco); }
+
 }

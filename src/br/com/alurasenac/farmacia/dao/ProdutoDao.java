@@ -66,4 +66,16 @@ public class ProdutoDao {
             throw new RuntimeException("Erro ao deletar produto do banco de dados", e);
         }
     }
+
+    public void atualizarPreco(String id, double novoPreco) {
+        String sql = "UPDATE produto SET preco = ? WHERE id = ?";
+        try (Connection connection = connectionFactory.recuperarConexao();
+             PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setDouble(1, novoPreco);
+            stmt.setString(2, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao atualizar preço do produto no banco de dados", e);
+        }
+    }
 }
